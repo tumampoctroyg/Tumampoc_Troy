@@ -1,0 +1,66 @@
+users = []
+
+# Create
+def create_user():
+    name = input("Enter name: ")
+    users.append(name)   # Corrected
+    print("User created successfully!\n")
+
+# Read
+def read_user():
+    if not users:
+        print("No user found.\n")
+        return
+    for user in users:
+        print(f"Name: {user}")
+    print()
+
+# Update
+def update_user():
+    user_name = input("Enter user name to update: ")
+
+    if user_name in users:
+        new_name = input("Enter new name: ")
+        index = users.index(user_name)
+        users[index] = new_name
+        print("User updated successfully!\n")
+    else:
+        print("User not found.\n")
+
+# Delete
+def delete_user():
+    user_name = input("Enter username to delete: ")
+
+    if user_name in users:
+        users.remove(user_name)
+        print("User deleted successfully!\n")
+    else:
+        print("User not found.\n")
+
+# Main function
+while True:
+    print("==== CRUD MENU ====")
+    print("1. Create")
+    print("2. Read")
+    print("3. Update")
+    print("4. Delete")
+    print("5. Exit")
+
+    choice = input("Select option: ")
+
+    if choice == "1":
+        create_user()
+    elif choice == "2":
+        read_user()
+    elif choice == "3":
+        update_user()
+    elif choice == "4":
+        delete_user()
+    elif choice == "5":
+        print("=== THANK YOU FOR USING OUR SYSTEM! ===")
+        print("===== GOODBYE! =====")
+        break   # Stops the loop
+    else:
+        print("Invalid option, try again.\n")
+        
+
